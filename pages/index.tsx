@@ -34,8 +34,11 @@ const Home: NextPage = () => {
       },
       body: JSON.stringify({ input }),
     });
-    const suggestion: string = await res.json();
-    setSuggestion(suggestion);
+    const suggestion: { result: string } = await res.json()
+    const { result } = suggestion
+    console.log('result', result)
+
+    setSuggestion(result)
     setInput("");
     toast.success("Enviado 🚀", {
       position: toast.POSITION.TOP_CENTER,
