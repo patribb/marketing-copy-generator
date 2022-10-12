@@ -3,7 +3,7 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 import { openai } from '../../utils/constants';
 
 type Data = {
-  input: string
+  result: string
 }
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
@@ -21,5 +21,5 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
   if(suggestion === undefined) {
     throw new Error('No se encontraron sugerencias')
   }
-  res.status(200).json({ result: suggestion })
+  res.status(200).json({ result: suggestion  })
 }
